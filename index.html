@@ -1,24 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="/dist/output.css" rel="stylesheet">
+  <link href="dist/output.css" rel="stylesheet">
   <title>Interaktionsdesign och användbarhet: Enskild uppgift 5</title>
   <style>
-    .passwordInput {
-      margin-top: 5%;
-      text-align: center;
-    }
-
     .displayBadge {
-      margin-top: 5%;
       display: none;
       text-align: center;
     }
   </style>
 </head>
+
 <body>
 
   <!-- ONE FORM FOR LOGIN, ONE FOR SIGNUP -->
@@ -121,8 +117,20 @@
                 <label for="password" class="block text-sm font-medium text-gray-700">Choose a password</label>
                 <input type="password" name="password" id="passEntry" autocomplete="password" required
                   class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                <div><span id="strengthDisp"
-                    class="text-xs inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold  text-white rounded displayBadge">Weak</span>
+                <div class="text-center">
+                  <span id="badgeTitle" class="text-sm text-gray-700 mt-1 hidden">Password strength:</span>
+                </div>
+                <div>
+                  <span id="badgeStrength"
+                    class="text-xs inline-block py-1 px-2.5 mt-1 leading-none text-center whitespace-nowrap align-baseline font-bold text-white rounded displayBadge">
+                    Weak
+                  </span>
+                </div>
+                <div>
+                  <span id="passHelper" class="text-sm text-gray-500 mt-2 hidden">
+                    For a secure password we recommend a minimum of 12 characters with one uppercase letter, number,
+                    special symbol ("!@#$%^&*") and punctuation.
+                  </span>
                 </div>
               </div>
             </div>

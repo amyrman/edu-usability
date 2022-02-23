@@ -1,7 +1,9 @@
 let password = document.getElementById("passEntry");
-let strengthBadge = document.getElementById("strengthDisp");
+let badgeTitle = document.getElementById("badgeTitle");
+let badgeStrength = document.getElementById("badgeStrength");
+let passHelper = document.getElementById("passHelper");
 let strongPassword = new RegExp(
-  "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})"
+  "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[.])(?=.{12,})"
 );
 let mediumPassword = new RegExp(
   "^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})"
@@ -9,23 +11,26 @@ let mediumPassword = new RegExp(
 
 function strengthChecker(PasswordParameter) {
   if (strongPassword.test(PasswordParameter)) {
-    strengthBadge.style.backgroundColor = "green";
-    strengthBadge.textContent = "Strong";
+    badgeStrength.style.backgroundColor = "green";
+    badgeStrength.textContent = "Strong";
   } else if (mediumPassword.test(PasswordParameter)) {
-    strengthBadge.style.backgroundColor = "blue";
-    strengthBadge.textContent = "Medium";
+    badgeStrength.style.backgroundColor = "blue";
+    badgeStrength.textContent = "Medium";
   } else {
-    strengthBadge.style.backgroundColor = "red";
-    strengthBadge.textContent = "Weak";
+    badgeStrength.style.backgroundColor = "red";
+    badgeStrength.textContent = "Weak";
   }
 }
 
 password.addEventListener("input", () => {
-  strengthBadge.style.display = "block";
   strengthChecker(password.value);
-  if (password.value.length !== 0) {
-    strengthBadge.style.display != "block";
+  if (password.value.length > 0) {
+    badgeTitle.style.display = "block";
+    badgeStrength.style.display = "block";
+    passHelper.style.display = "block";
   } else {
-    strengthBadge.style.display = "none";
+    badgeTitle.style.display = "none";
+    badgeStrength.style.display = "none";
+    passHelper.style.display = "none";
   }
 });
