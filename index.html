@@ -7,12 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="dist/output.css" rel="stylesheet">
   <title>Interaction design and usability: Individual assignment 5</title>
-  <style>
-    .displayBadge {
-      display: none;
-      text-align: center;
-    }
-  </style>
 </head>
 
 <body>
@@ -32,7 +26,6 @@
           <input type="hidden" name="remember" value="True">
           <div class="rounded-md shadow-sm -space-y-px">
             <div class="grid gap-6">
-
               <div class="col-span-12">
                 <label for="sign-in-email" class="block text-sm font-medium text-gray-700">Email address</label>
                 <input type="email" name="sign-in-email" id="sign-in-email" autocomplete="email"
@@ -114,21 +107,25 @@
                   class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
               </div>
               <div class="col-span-12">
-                <label for="password" class="block text-sm font-medium text-gray-700">Can you make a strong enough password?</label>
-                <input type="password" name="password" id="passEntry" autocomplete="password" required
+                <label for="password" class="block text-sm font-medium text-gray-700">Can you make a strong enough
+                  password?</label>
+                <input type="password" name="password" id="passEntry"
+                  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[.])(?=.{12,})"
+                  autocomplete="password" required
                   class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                 <div class="text-center">
                   <span id="badgeTitle" class="text-sm text-gray-700 mt-1 hidden">Password strength:</span>
                 </div>
                 <div>
                   <span id="badgeStrength"
-                    class="text-xs inline-block py-1 px-2.5 mt-1 leading-none text-center whitespace-nowrap align-baseline font-bold text-white rounded displayBadge">
+                    class="text-xs py-1 px-2.5 mt-1 leading-none text-center whitespace-nowrap align-baseline font-bold text-white rounded hidden">
                     Weak
                   </span>
                 </div>
                 <div>
                   <span id="passHelper" class="text-sm text-gray-500 mt-2 hidden">
-                    For a secure password we recommend a minimum of 12 characters with at least one lowercase and uppercase letter, number,
+                    For a secure password we recommend a minimum of 12 characters with at least one lowercase and
+                    uppercase letter, number,
                     special symbol ("!@#$%^&*") and punctuation.
                   </span>
                 </div>
